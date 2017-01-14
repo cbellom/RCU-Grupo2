@@ -25,10 +25,8 @@ public class PlayerMoveController : MonoBehaviour {
 	}
 
 	void Update(){
-		if(isGrounded && Input.GetKeyDown (KeyCode.W)){
-			playerAnimatior.SetBool ("grounded", false);	
-			playerRigidBody.AddForce (new Vector3(0, jumpForce, 0));
-		}
+		if (isGrounded && Input.GetKeyDown (KeyCode.W))
+			Jump ();
 	}
 
 	void Flip(){
@@ -52,6 +50,11 @@ public class PlayerMoveController : MonoBehaviour {
 		isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
 		playerAnimatior.SetBool ("grounded", isGrounded);	
 		playerAnimatior.SetFloat ("verticalSpeed", playerRigidBody.velocity.y);	
+	}
+
+	void Jump(){
+		playerAnimatior.SetBool ("grounded", false);	
+		playerRigidBody.AddForce (new Vector3(0, jumpForce, 0));
 	}
 
 
