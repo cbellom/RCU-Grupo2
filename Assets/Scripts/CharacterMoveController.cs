@@ -10,28 +10,17 @@ public class CharacterMoveController : MonoBehaviour {
     private float zMove = 0;
     private Vector3 moveDirection = Vector3.zero;
 
-
-    [SerializeField]
-    private Vector3 radius = new Vector3(5, 0, 0);
-    private float currentRotation = 0.0f;
-    private Quaternion rotation;
-
     void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded)
         {
             xMove = Input.GetAxis("Horizontal");
-            currentRotation += xMove * Time.deltaTime * speed;
-            
-            rotation.eulerAngles = new Vector3(0, -currentRotation, 0);
-            transform.rotation = rotation;
+			zMove = Input.GetAxis("Vertical");
 
             moveDirection = new Vector3(xMove, 0, zMove);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
-
-            transform.rotation = rotation;
 
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
