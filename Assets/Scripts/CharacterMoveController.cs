@@ -7,16 +7,11 @@ public class CharacterMoveController : MonoBehaviour {
 
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
+	public float rotationSpeed = 45f;
     public float gravity = 20.0F;
-    private float horizontalInput = 0;
-    private float verticalInput = 0;
+	public bool isFacingForward = true;
 
 	private Vector3 moveDirection = Vector3.zero;
-	private Vector3 movement = Vector3.zero;
-	private Vector3 forward = Vector3.zero;
-	private Vector3 right = Vector3.zero;
-	private Vector3 targetDirection = Vector3.zero;
-
 	private CharacterController controller;
 	private Animator playerAnimatior;
 
@@ -30,6 +25,8 @@ public class CharacterMoveController : MonoBehaviour {
 	}
 
     void Update()    {
+		Rotate ();
+
         if (controller.isGrounded) {
 			Move ();
 
@@ -37,32 +34,28 @@ public class CharacterMoveController : MonoBehaviour {
 				Jump ();
 
         }
-		movement.y -= gravity * Time.deltaTime;
-		controller.Move(movement * Time.deltaTime);
+		moveDirection.y -= gravity * Time.deltaTime;
+		controller.Move(moveDirection * Time.deltaTime);
     }
 
 	void Move(){
-		forward = transform.forward;
-		right = transform.right;
-
-		horizontalInput = Input.GetAxis("Horizontal");
-		verticalInput = Input.GetAxis("Vertical");
-
-		targetDirection = horizontalInput * right + verticalInput * forward;
-		Rotate ();
 		MoveForward ();
-
 		playerAnimatior.SetFloat ("moveSpeed", controller.velocity.magnitude);	
 	}
 
 	void Rotate(){
-		if(targetDirection != Vector3.zero)
-			transform.rotation = Quaternion.LookRotation (moveDirection);
+		transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
+
+		if (Input.GetAxis("Vertical") > 0 && !isFacingForward)
+			Flip ();
+		else if (Input.GetAxis("Vertical") < 0 && isFacingForward)
+			Flip ();
 	}
 
 	void MoveForward(){
-		moveDirection = Vector3.RotateTowards (moveDirection, targetDirection, 100 * Mathf.Deg2Rad * Time.deltaTime, 1000);
-		movement = moveDirection * speed;
+		moveDirection = Vector3.forward * Input.GetAxis("Vertical");
+		moveDirection = transform.TransformDirection(moveDirection);
+		moveDirection *= speed;
 	}
 
 	void CheckGrounded (){
@@ -72,6 +65,11 @@ public class CharacterMoveController : MonoBehaviour {
 
 	void Jump(){
 		playerAnimatior.SetBool ("grounded", false);	
-		movement.y = jumpSpeed;
+		moveDirection.y = jumpSpeed;
+	}
+
+	void Flip(){
+		isFacingForward = !isFacingForward;
+		playerAnimatior.SetBool ("isFacingForward", isFacingForward);	
 	}
 }
