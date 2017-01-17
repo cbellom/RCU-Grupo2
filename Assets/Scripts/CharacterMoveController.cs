@@ -10,23 +10,49 @@ public class CharacterMoveController : MonoBehaviour {
     private float zMove = 0;
     private Vector3 moveDirection = Vector3.zero;
 
-    void Update()
-    {
-        CharacterController controller = GetComponent<CharacterController>();
-        if (controller.isGrounded)
-        {
-            xMove = Input.GetAxis("Horizontal");
-			zMove = Input.GetAxis("Vertical");
+	CharacterController controller;
+	private Animator playerAnimatior;
 
-            moveDirection = new Vector3(xMove, 0, zMove);
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= speed;
+	void Start () {
+		controller = GetComponent<CharacterController>();
+		playerAnimatior = GetComponent<Animator> ();
+	}
 
-            if (Input.GetButton("Jump"))
-                moveDirection.y = jumpSpeed;
+	void FixedUpdate () {
+		CheckGrounded ();
+		Move ();
+	}
+
+    void Update()    {
+        if (controller.isGrounded) {
+			Move ();
+
+			if (Input.GetButton ("Jump"))
+				moveDirection.y = jumpSpeed;
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+	void Move(){
+		xMove = Input.GetAxis("Horizontal");
+		zMove = Input.GetAxis("Vertical");
+
+		moveDirection = new Vector3(xMove, 0, zMove);
+		moveDirection = transform.TransformDirection(moveDirection);
+		moveDirection *= speed;
+
+		playerAnimatior.SetFloat ("moveSpeed", Mathf.Abs (zMove));	
+	}
+
+	void CheckGrounded (){
+		playerAnimatior.SetBool ("grounded", controller.isGrounded);	
+		playerAnimatior.SetFloat ("verticalSpeed", controller.velocity.y);
+	}
+
+	void Jump(){
+		playerAnimatior.SetBool ("grounded", false);	
+		moveDirection.y = jumpSpeed;
+	}
 }
