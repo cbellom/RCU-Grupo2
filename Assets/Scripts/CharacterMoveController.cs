@@ -20,7 +20,6 @@ public class CharacterMoveController : MonoBehaviour {
 
 	void FixedUpdate () {
 		CheckGrounded ();
-		Move ();
 	}
 
     void Update()    {
@@ -28,7 +27,7 @@ public class CharacterMoveController : MonoBehaviour {
 			Move ();
 
 			if (Input.GetButton ("Jump"))
-				moveDirection.y = jumpSpeed;
+				Jump ();
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
