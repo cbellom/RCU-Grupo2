@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +31,14 @@ public class MainMenuController : MonoBehaviour {
 
     public void ChangeScene(string sceneName) {
         Debug.Log("Load scene " + sceneName);
-		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
+		StartCoroutine(LoadOtherScene(sceneName, fadeSpeed));
     }
+
+	private IEnumerator LoadOtherScene(string sceneName, float seconds)    {
+		isTurnOn = false;
+
+		yield return new WaitForSeconds(seconds);
+		isTurnOn = true;
+		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
+	}
 }
