@@ -10,7 +10,8 @@ public class CamBehaviour : MonoBehaviour {
 		min_distance = 2;
 	}
 	void Update () {
-		Vector3 target_pos = character.position * 2;
+		Vector3 target_pos = character.position * 1.5f;
+		target_pos.y = character.position.y;
 		if (target_pos.magnitude < min_distance)
 			target_pos = target_pos.normalized * min_distance;
 		target_pos.y = target_pos.y + height;
