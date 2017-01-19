@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: 97a4b643bfb516c4d98d23684d967ace
+timeCreated: 1484782733
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 3 amimatios_0
+    21300002: 3 amimatios_1
+    21300004: 3 amimatios_2
+    21300006: 3 amimatios_3
+    21300008: 3 amimatios_4
+    21300010: 3 amimatios_5
+    21300012: 3 amimatios_6
+    21300014: 3 amimatios_7
+    21300016: 3 amimatios_8
+    21300018: 3 amimatios_9
+    21300020: 3 amimatios_10
+    21300022: 3 amimatios_11
+    21300024: 3 amimatios_12
+    21300026: 3 amimatios_13
+    21300028: 3 amimatios_14
+    21300030: 3 amimatios_15
+    21300032: 3 amimatios_16
+    21300034: 3 amimatios_17
+    21300036: 3 amimatios_18
+    21300038: 3 amimatios_19
+    21300040: 3 amimatios_20
+    21300042: 3 amimatios_21
+    21300044: 3 amimatios_22
+    21300046: 3 amimatios_23
+    21300048: 3 amimatios_24
+    21300050: 3 amimatios_25
+    21300052: 3 amimatios_26
+    21300054: 3 amimatios_27
+    21300056: 3 amimatios_28
+    21300058: 3 amimatios_29
+    21300060: 3 amimatios_30
+    21300062: 3 amimatios_31
+    21300064: 3 amimatios_32
+    21300066: 3 amimatios_33
+    21300068: 3 amimatios_34
+    21300070: 3 amimatios_35
+    21300072: 3 amimatios_36
+    21300074: 3 amimatios_37
+    21300076: 3 amimatios_38
+    21300078: 3 amimatios_39
+    21300080: 3 amimatios_40
+    21300082: 3 amimatios_41
+    21300084: 3 amimatios_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3 amimatios_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1886
+        width: 451
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_1
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1879
+        width: 451
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_2
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1872
+        width: 451
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_3
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 1878
+        width: 451
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1674
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1666
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_6
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 1666
+        width: 477
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_7
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1463
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_8
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1461
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_9
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1453
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_10
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 1449
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1279
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_12
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1267
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_13
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1265
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_14
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 1265
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1093
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_16
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1087
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_17
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1083
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_18
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1077
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 866
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_20
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 863
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_21
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 865
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_22
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 860
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 696
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_24
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 693
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_25
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 699
+        width: 474
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_26
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 686
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_27
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 541
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_28
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 540
+        width: 481
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_29
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 557
+        width: 356
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_30
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 552
+        width: 409
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_31
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 364
+        width: 512
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_32
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 208
+        width: 496
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_33
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 206
+        width: 520
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_34
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 202
+        width: 465
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_35
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 49
+        width: 465
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_36
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 36
+        width: 470
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_37
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 34
+        width: 475
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_38
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 32
+        width: 480
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_39
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 1672
+        width: 441
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_40
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 367
+        width: 538
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_41
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 360
+        width: 566
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 3 amimatios_42
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 201
+        width: 458
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
