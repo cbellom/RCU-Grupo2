@@ -2,19 +2,20 @@
 using System.Collections;
 
 public class ActiveUIPuzzle : InteractableObject {
-	
-	public PuzzleUI puzzle;
+
+    public HackDataGame dataGame;
+    public PuzzleUI puzzle;
 	public Camera cameraPuzzle;
 	private Camera mainCamera;
 
-	void Awake() {
+    void Awake() {
 		mainCamera = GameObject.Find ("Main Camera").GetComponent<Camera>();
 		ObjectActivated += HandleExampleObjectActived;
 		ObjectFinished += HandleExampleObjectExpired;
 	}
 
 	private void HandleExampleObjectActived() {
-		ActivePuzze ();
+		ActivePuzzle ();
 		StopAllCoroutines ();
 		StartCoroutine(WaitFinishAction(timeToTriggerAction));
 	}
@@ -23,10 +24,10 @@ public class ActiveUIPuzzle : InteractableObject {
 		Destroy(gameObject);
 	}
 
-	private void ActivePuzze() {
+	private void ActivePuzzle() {
 		LockPlayerMove ();
 		SwitchCameras ();
-		puzzle.Active();
+		puzzle.Active(dataGame);
 	}
 
 	private void SwitchCameras(){

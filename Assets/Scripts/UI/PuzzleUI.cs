@@ -3,8 +3,9 @@ using System;
 using System.Collections;
 
 public class PuzzleUI : CanvasUI {
+    private DataPuzzle data;
 
-	public Action OnResetPuzzle
+	public Action<DataPuzzle> OnResetPuzzle
 	{
 		get;
 		set;
@@ -18,15 +19,17 @@ public class PuzzleUI : CanvasUI {
 
 	protected bool isActive = false;
 
-	public void Active(){
+	public void Active(DataPuzzle data)
+    {
+        this.data = data;
 		isTurnOn = true;
 		if(OnResetPuzzle != null)
-			OnResetPuzzle();
+			OnResetPuzzle(data);
 	}
 
 	protected void Reset(){
 		if(OnResetPuzzle != null)
-			OnResetPuzzle();
+			OnResetPuzzle(data);
 	}
 
 	protected void Finish(){
