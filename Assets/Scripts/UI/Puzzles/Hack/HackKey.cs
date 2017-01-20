@@ -9,31 +9,29 @@ public class HackKey : MonoBehaviour{
 	public Sprite left;
 	public Sprite right;
 
-	public Action TriggerStay
+	public Action<HackKey> TriggerStay
 	{
 		get;
 		set;
 	}
 
-	public Action TriggerExit
+	public Action<HackKey> TriggerExit
 	{
 		get;
 		set;
 	}
 
 	private Image image;
-
-	void Start(){
-		image = GetComponent<Image> ();
-	}
-
-	void SetUp(KeyCode key){
+    
+	public void SetUp(KeyCode key){
 		this.key = key;
 		SetUpImageSprite ();
 	}
 
 	private void SetUpImageSprite(){
-		if (key == KeyCode.UpArrow)
+        image = GetComponent<Image>();
+
+        if (key == KeyCode.UpArrow)
 			image.sprite = up;
 		else if (key == KeyCode.DownArrow)
 			image.sprite = down;
@@ -44,12 +42,12 @@ public class HackKey : MonoBehaviour{
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.CompareTag ("Hack") && Input.GetKey (key))
-			if(TriggerStay  != null)TriggerStay ();
+		if (other.gameObject.CompareTag ("PuzzleHack") && Input.GetKey (key))
+			if(TriggerStay  != null)TriggerStay (this);
 	}
 
 	private void OnTriggerExit2D(Collider2D other){
-		if (other.gameObject.CompareTag ("Hack"))
-			if(TriggerExit  != null)TriggerExit ();
+		if (other.gameObject.CompareTag ("PuzzleHack"))
+			if(TriggerExit  != null)TriggerExit (this);
 	}
 }

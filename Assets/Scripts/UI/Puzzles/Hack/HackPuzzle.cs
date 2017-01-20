@@ -41,10 +41,42 @@ public class HackPuzzle : PuzzleUI {
 	}
 
 	void CreatePuzzle(){
-		
+        foreach (KeyCode key in listKeys) {
+            GameObject obj = CreateKeyObject();
+            SetUpHackKey(obj, key);
+        }
 	}
 
-	IEnumerator BeginPuzzle(){
+    GameObject CreateKeyObject() {
+        GameObject obj = Instantiate(hackKeyPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+        obj.transform.SetParent(inputKeysPanel.transform);
+
+        return obj;        
+    }
+
+    void SetUpHackKey(GameObject obj, KeyCode key) {
+        HackKey hackKey = obj.GetComponent<HackKey>();
+        if (hackKey != null) {
+            hackKey.SetUp( key );
+            hackKey.TriggerExit += HandleHackKeyTriggerExit;
+            hackKey.TriggerStay += HandleHackKeyTriggerStay;
+            listHackKeys.Add(hackKey);
+        }
+    }
+
+    private void HandleHackKeyTriggerStay(HackKey key) {
+
+    }
+
+    private void HandleHackKeyTriggerExit(HackKey key)
+    {
+        currentTry++;
+        if (currentTry > numberOfTries) {
+            Finish();
+        }
+    }
+
+    IEnumerator BeginPuzzle(){
 		yield return new WaitForSeconds (secondsToBegin);
 
 		currentTry = 0;
