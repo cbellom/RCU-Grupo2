@@ -36,7 +36,7 @@ public class PuzzleUI : CanvasUI {
 	}
 
 	private void UnLockPlayerMove(){
-		GameObject player = GameObject.FindGameObjectWithTag ("player");
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CharacterMoveController> ().enabled = true;
 	}
 
