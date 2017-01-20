@@ -2,40 +2,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent (typeof (CanvasGroup))]
-public class HelpMessageController : MonoBehaviour {
-
-    [SerializeField]
-    private float fadeSpeed;
+public class HelpMessageController : CanvasUI {
+	
     [SerializeField]
     private float secondsDuration;
     [SerializeField]
     private Text helpLabel;
-    [SerializeField]
-    private bool isTurnOn = false;
-    private CanvasGroup canvasGroup;
 
-    private void Awake() {
-        canvasGroup = GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0;
-    }
+	void Start(){
+		OnKeyPressed += HanldeOnKeyPressed;
+	}
 
-    private void Update() {
-        if (isTurnOn && canvasGroup.alpha < 1)
-            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
-        else if (!isTurnOn && canvasGroup.alpha > 0)
-            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
-
-#if UNITY_EDITOR
-        if (Input.GetKey(KeyCode.H))
-            ShowNewMessage("TEST: Editor help message");
-#endif
-    }
-
-    public void ShowNewMessage(string message) {
+	public void ShowNewMessage(string message, float timeToShow) {
         helpLabel.text = message;
         StopAllCoroutines();
-        StartCoroutine(ShowHelp(secondsDuration));
+		StartCoroutine(ShowHelp(timeToShow));
     }
 
     private IEnumerator ShowHelp(float seconds)    {
@@ -45,5 +26,9 @@ public class HelpMessageController : MonoBehaviour {
 
         isTurnOn = false;
     }
+
+	private void HanldeOnKeyPressed(){
+		ShowNewMessage("TEST: Editor help message", secondsDuration);		
+	}
     
 }

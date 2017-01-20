@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActiveUIPuzzle : InteractableObject {
 	
-	public UIPuzzle puzzle;
+	public PuzzleUI puzzle;
 	public Camera cameraPuzzle;
 	private Camera mainCamera;
 
@@ -24,7 +24,6 @@ public class ActiveUIPuzzle : InteractableObject {
 	}
 
 	private void ActivePuzze() {
-		Debug.Log ("Hola");
 		LockPlayerMove ();
 		SwitchCameras ();
 		puzzle.Active();
