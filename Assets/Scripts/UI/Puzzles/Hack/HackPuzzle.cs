@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ public class HackPuzzle : PuzzleUI {
 	public int numberOfTries;
 	public int secondsToBegin;
 	public float speed;
-	[Header("Hack puzzle data")]
+    [Header("Hack puzzle data")]
 	public GameObject inputKeysPanel;
 	public GameObject hackKeyPrefab;
 	public List<KeyCode> listKeys = new List<KeyCode> ();
@@ -29,7 +30,8 @@ public class HackPuzzle : PuzzleUI {
 	void HandlePuzzleReset(){
 		ErasePuzzle ();
 		CreatePuzzle ();
-		StartCoroutine (BeginPuzzle ());
+        ResetPanelListPosition();
+        StartCoroutine (BeginPuzzle ());
 	}
 
 	void HandlePuzzleGameOver(){
@@ -65,14 +67,15 @@ public class HackPuzzle : PuzzleUI {
     }
 
     private void HandleHackKeyTriggerStay(HackKey key) {
-
+        Debug.Log("stay " + key.key.ToString());
     }
 
-    private void HandleHackKeyTriggerExit(HackKey key)
-    {
+    private void HandleHackKeyTriggerExit(HackKey key) {
+        Debug.Log("exit " + key.key.ToString());
         currentTry++;
-        if (currentTry > numberOfTries) {
-            Finish();
+        if (currentTry > numberOfTries)
+        {
+            isActive = false;
         }
     }
 
@@ -82,6 +85,11 @@ public class HackPuzzle : PuzzleUI {
 		currentTry = 0;
 		isActive = true;
 	}
+
+    private void ResetPanelListPosition() {
+        panelAnchoredPosition.y += ( (hackKeyPrefab.GetComponent<RectTransform>().sizeDelta.y + inputKeysPanel.GetComponent<VerticalLayoutGroup>().spacing) * listKeys.Count);
+        inputKeysPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
+    }
 
 	void HandleFrameUpdated(){
 		if (isActive) {

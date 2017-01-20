@@ -42,8 +42,12 @@ public class HackKey : MonoBehaviour{
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.CompareTag ("PuzzleHack") && Input.GetKey (key))
-			if(TriggerStay  != null)TriggerStay (this);
+		if (other.gameObject.CompareTag ("PuzzleHack") && Input.GetKey(key))
+        {
+            Destroy(gameObject);
+            if (TriggerStay != null) TriggerStay(this);
+        }
+			
 	}
 
 	private void OnTriggerExit2D(Collider2D other){
