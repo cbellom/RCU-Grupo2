@@ -28,13 +28,13 @@ public class HackKey : MonoBehaviour{
         image = GetComponent<Image>();
 
 		if (key == KeyCode.UpArrow)
-			Debug.Log ("up");
+			image.rectTransform.rotation = Vector3.up;
 		else if (key == KeyCode.DownArrow)
-			Debug.Log ("up");
+			image.rectTransform.rotation = Vector3.down;
 		else if (key == KeyCode.LeftArrow)
-			Debug.Log ("up");
+			image.rectTransform.rotation = Vector3.left;
 		else 
-			Debug.Log ("up");
+			image.rectTransform.rotation = Vector3.right;
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
