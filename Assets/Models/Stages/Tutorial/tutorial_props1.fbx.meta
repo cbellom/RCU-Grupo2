@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: b23f033738477ca4c883f1e2a308053e
+timeCreated: 1484956892
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Barrel
+    100002: Barrel1
+    100004: Barrel2
+    100006: Barrel3
+    100008: Box
+    100010: Box1
+    100012: Box2
+    100014: Box_labeled
+    100016: Box_labeled1
+    100018: Box_labeled2
+    100020: Box_labeled3
+    100022: Pallet
+    100024: pasted__Box
+    100026: pCube25
+    100028: pCube31
+    100030: pCylinder12
+    100032: pCylinder13
+    100034: pCylinder14
+    100036: Small_box
+    100038: Small_box1
+    100040: //RootNode
+    400000: Barrel
+    400002: Barrel1
+    400004: Barrel2
+    400006: Barrel3
+    400008: Box
+    400010: Box1
+    400012: Box2
+    400014: Box_labeled
+    400016: Box_labeled1
+    400018: Box_labeled2
+    400020: Box_labeled3
+    400022: Pallet
+    400024: pasted__Box
+    400026: pCube25
+    400028: pCube31
+    400030: pCylinder12
+    400032: pCylinder13
+    400034: pCylinder14
+    400036: Small_box
+    400038: Small_box1
+    400040: //RootNode
+    2300000: Barrel
+    2300002: Barrel1
+    2300004: Barrel2
+    2300006: Barrel3
+    2300008: Box
+    2300010: Box1
+    2300012: Box2
+    2300014: Box_labeled
+    2300016: Box_labeled1
+    2300018: Box_labeled2
+    2300020: Box_labeled3
+    2300022: Pallet
+    2300024: pasted__Box
+    2300026: pCube25
+    2300028: pCube31
+    2300030: pCylinder12
+    2300032: pCylinder13
+    2300034: pCylinder14
+    2300036: Small_box
+    2300038: Small_box1
+    3300000: Barrel
+    3300002: Barrel1
+    3300004: Barrel2
+    3300006: Barrel3
+    3300008: Box
+    3300010: Box1
+    3300012: Box2
+    3300014: Box_labeled
+    3300016: Box_labeled1
+    3300018: Box_labeled2
+    3300020: Box_labeled3
+    3300022: Pallet
+    3300024: pasted__Box
+    3300026: pCube25
+    3300028: pCube31
+    3300030: pCylinder12
+    3300032: pCylinder13
+    3300034: pCylinder14
+    3300036: Small_box
+    3300038: Small_box1
+    4300000: pCube25
+    4300002: Pallet
+    4300004: Small_box
+    4300006: Box_labeled
+    4300008: Box
+    4300010: Barrel
+    4300012: Barrel1
+    4300014: Box_labeled1
+    4300016: Barrel2
+    4300018: Barrel3
+    4300020: Box1
+    4300022: Box2
+    4300024: Small_box1
+    4300026: pCube31
+    4300028: pasted__Box
+    4300030: pCylinder12
+    4300032: pCylinder13
+    4300034: pCylinder14
+    4300036: Box_labeled2
+    4300038: Box_labeled3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
