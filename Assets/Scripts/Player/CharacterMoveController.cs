@@ -72,4 +72,22 @@ public class CharacterMoveController : MonoBehaviour {
 		isFacingForward = !isFacingForward;
 		playerAnimatior.SetBool ("isFacingForward", isFacingForward);	
 	}
+
+	
+	// cuando colisiona con elementos con Rigidbody
+	void OnControllerColliderHit(ControllerColliderHit hit){
+
+		
+		if (hit.gameObject.tag == "AnchorObj"){
+			
+			if (hit.moveDirection.y < 0F){
+				Debug.Log (hit.gameObject);
+				RotationalPlatform rp = hit.gameObject.GetComponent<RotationalPlatform> ();
+				if (rp) {
+					Debug.Log ("colision");
+					rp.Activate ();
+				}
+			}
+		} 
+	}
 }
