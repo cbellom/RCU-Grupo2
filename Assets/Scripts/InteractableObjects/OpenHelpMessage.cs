@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class OpenHelpMessage : InteractableObject {
+	public float timeToShow = 5f;
 	public string message;
 	public HelpMessageController helpMessage;
 
@@ -21,10 +22,8 @@ public class OpenHelpMessage : InteractableObject {
 	}
 
 	private void OpenMessage() {
-		Debug.Log ("Open Help");
-		if (helpMessage != null) {
-			helpMessage.ShowNewMessage (message);
-		}
+		if (helpMessage != null)
+			helpMessage.ShowNewMessage (message, timeToShow);
 	}
 
 }
