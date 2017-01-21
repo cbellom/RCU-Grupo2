@@ -5,6 +5,12 @@ using System;
 public class HackKey : MonoBehaviour{
 	public KeyCode key;
 
+	public Action<HackKey> TriggerEnter
+	{
+		get;
+		set;
+	}
+
 	public Action<HackKey> TriggerStay
 	{
 		get;
@@ -28,19 +34,28 @@ public class HackKey : MonoBehaviour{
         image = GetComponent<Image>();
 
 		if (key == KeyCode.UpArrow)
-			image.rectTransform.rotation = Vector3.up;
+			gameObject.GetComponent<RectTransform> ().Rotate (new Vector3 (0, 0, 0));
 		else if (key == KeyCode.DownArrow)
-			image.rectTransform.rotation = Vector3.down;
+			gameObject.GetComponent<RectTransform> ().Rotate (new Vector3 (0, 0, 180));
 		else if (key == KeyCode.LeftArrow)
-			image.rectTransform.rotation = Vector3.left;
-		else 
-			image.rectTransform.rotation = Vector3.right;
+			gameObject.GetComponent<RectTransform> ().Rotate (new Vector3 (0, 0, 90));
+		else
+			gameObject.GetComponent<RectTransform> ().Rotate (new Vector3 (0, 0, -90));
+	}
+
+	private void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag ("PuzzleHack") && key == KeyCode.Escape) {
+			if (TriggerEnter != null)
+				TriggerEnter (this);
+		}
+
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.CompareTag ("PuzzleHack") && Input.GetKey(key))
         {
-            Destroy(gameObject);
+			gameObject.GetComponent<Image> ().enabled = false;
+			gameObject.GetComponent<Collider2D> ().enabled = false;
             if (TriggerStay != null) TriggerStay(this);
         }
 			

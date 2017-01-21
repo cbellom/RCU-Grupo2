@@ -33,12 +33,12 @@ public class PuzzleUI : CanvasUI {
 	}
 
 	protected void Finish(){
-		isTurnOn = true;
+		isTurnOn = false;
 		UnLockPlayerMove ();
 		RunAnimations ();
 	}
 
-	private void UnLockPlayerMove(){
+	protected void UnLockPlayerMove(){
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CharacterMoveController> ().enabled = true;
 	}

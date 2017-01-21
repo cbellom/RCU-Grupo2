@@ -31,8 +31,8 @@ public class ActiveUIPuzzle : InteractableObject {
 	}
 
 	private void SwitchCameras(){
-		mainCamera.enabled = false;
-		cameraPuzzle.enabled = true;
+		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
+		camerasController.ActiveCameraByName (cameraPuzzle.name);
 	}
 
 	private void LockPlayerMove(){

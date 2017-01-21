@@ -8,6 +8,8 @@ public class HackPuzzle : PuzzleUI {
     [Header("Hack puzzle data")]
 	public GameObject inputKeysPanel;
 	public GameObject hackKeyPrefab;
+	public GameObject particlesPrefab;
+	public HackKey defaultKeyToFinishGame;
   
     private int currentTry = 0;
     private int numberOfTries;
@@ -20,6 +22,7 @@ public class HackPuzzle : PuzzleUI {
 
 	void Start() {
         panelAnchoredPosition = inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition;
+		defaultKeyToFinishGame.TriggerEnter += HandleHackKeyTriggerEnter;
 
 		OnFrameUpdated += HandleFrameUpdated;
 		OnResetPuzzle += HandlePuzzleReset;
@@ -59,19 +62,23 @@ public class HackPuzzle : PuzzleUI {
     void SetUpHackKey(GameObject obj, KeyCode key) {
         HackKey hackKey = obj.GetComponent<HackKey>();
         if (hackKey != null) {
-            hackKey.SetUp( key );
+			hackKey.SetUp( key );
             hackKey.TriggerExit += HandleHackKeyTriggerExit;
             hackKey.TriggerStay += HandleHackKeyTriggerStay;
             listHackKeys.Add(hackKey);
         }
     }
 
+	private void HandleHackKeyTriggerEnter(HackKey key) {
+		isActive = false;
+		GameFinisedOnSucced ();
+	}
+
     private void HandleHackKeyTriggerStay(HackKey key) {
         Debug.Log("stay " + key.key.ToString());
     }
 
     private void HandleHackKeyTriggerExit(HackKey key) {
-        Debug.Log("exit " + key.key.ToString());
         currentTry++;
         if (currentTry > numberOfTries)
         {
@@ -90,7 +97,7 @@ public class HackPuzzle : PuzzleUI {
 	}
 
     private void ResetPanelListPosition() {
-        panelAnchoredPosition.y += ( (hackKeyPrefab.GetComponent<RectTransform>().sizeDelta.y + inputKeysPanel.GetComponent<VerticalLayoutGroup>().spacing) * dataGame.itemList.Count);
+        panelAnchoredPosition.y += ( (hackKeyPrefab.GetComponent<RectTransform>().sizeDelta.y + inputKeysPanel.GetComponent<VerticalLayoutGroup>().spacing ) * dataGame.itemList.Count);
         inputKeysPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
     }
 
@@ -99,5 +106,11 @@ public class HackPuzzle : PuzzleUI {
 			panelAnchoredPosition.y -= Time.deltaTime * speed;
 			inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
 		}
+	}
+
+	void GameFinisedOnSucced(){
+		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
+		camerasController.ActiveCameraByName ("Main Camera");
+		Finish ();
 	}
 }
