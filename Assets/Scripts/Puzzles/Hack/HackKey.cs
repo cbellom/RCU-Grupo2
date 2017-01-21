@@ -4,10 +4,6 @@ using System;
 
 public class HackKey : MonoBehaviour{
 	public KeyCode key;
-	public Sprite up;
-	public Sprite down;
-	public Sprite left;
-	public Sprite right;
 
 	public Action<HackKey> TriggerStay
 	{
@@ -31,14 +27,14 @@ public class HackKey : MonoBehaviour{
 	private void SetUpImageSprite(){
         image = GetComponent<Image>();
 
-        if (key == KeyCode.UpArrow)
-			image.sprite = up;
+		if (key == KeyCode.UpArrow)
+			Debug.Log ("up");
 		else if (key == KeyCode.DownArrow)
-			image.sprite = down;
+			Debug.Log ("up");
 		else if (key == KeyCode.LeftArrow)
-			image.sprite = left;
+			Debug.Log ("up");
 		else 
-			image.sprite = right;
+			Debug.Log ("up");
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
