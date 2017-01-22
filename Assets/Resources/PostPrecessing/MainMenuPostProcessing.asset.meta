@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: ca3465b3c92460e47b22b7fd836e27b2
+labels:
+- Post
 timeCreated: 1477914841
 licenseType: Store
 NativeFormatImporter:

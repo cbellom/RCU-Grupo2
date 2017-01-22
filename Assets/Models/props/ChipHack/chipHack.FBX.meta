@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a7914afe8997ebd46b3173fe92e6266f
-timeCreated: 1484785231
+guid: 747f08270eceb9943b79a1ea8f233978
+timeCreated: 1485054636
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Body_Steve
-    9500000: //RootNode
+    4300000: Box001
   materials:
     importMaterials: 1
     materialName: 0
@@ -25,7 +24,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -69,7 +68,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
