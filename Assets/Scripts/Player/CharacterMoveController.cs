@@ -50,7 +50,9 @@ public class CharacterMoveController : MonoBehaviour {
 			Flip ();
 		else if (Input.GetAxis("Vertical") < 0 && isFacingForward)
 			Flip ();
-	}
+
+        playerAnimatior.SetFloat("horizontalSpeed", Input.GetAxis("Horizontal"));
+    }
 
 	void MoveForward(){
 		moveDirection = Vector3.forward * Input.GetAxis("Vertical");
