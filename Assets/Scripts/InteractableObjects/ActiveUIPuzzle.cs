@@ -7,7 +7,7 @@ public class ActiveUIPuzzle : InteractableObject {
     public Camera cameraPuzzle;
     protected PuzzleUI puzzle;
 	private Camera mainCamera;
-
+    
     void Awake() {
 		mainCamera = GameObject.Find ("Main Camera").GetComponent<Camera>();
         if (mainCamera == null)
@@ -17,24 +17,28 @@ public class ActiveUIPuzzle : InteractableObject {
         if (puzzle == null)
             Debug.LogError("ActiveUIPuzzle requires a GameObject in scene of type PuzzleUI");
 
-        ObjectActivated += HandleExampleObjectActived;
-		ObjectFinished += HandleExampleObjectExpired;
+        ObjectActivated += HandleObjectActived;
 	}
 
-	private void HandleExampleObjectActived() {
+	private void HandleObjectActived() {
 		ActivePuzzle ();
-		StopAllCoroutines ();
-		StartCoroutine(WaitFinishAction(timeToTriggerAction));
-	}
+    }
 
-	private void HandleExampleObjectExpired(GameObject player) {
+	private void DestroyTrigger() {
 		Destroy(gameObject);
 	}
 
-	private void ActivePuzzle() {
+    private void ResetTriggerCollider()
+    {
+        StartCoroutine(WaitFinishAction(timeToTriggerAction));
+    }
+
+    private void ActivePuzzle() {
 		LockPlayerMove ();
 		SwitchCameras ();
-		puzzle.Active(dataGame);
+        puzzle.OnGameOverPuzzle += ResetTriggerCollider;
+        puzzle.OnCompletePuzzle += DestroyTrigger;
+        puzzle.Active(dataGame);
 	}
 
 	private void SwitchCameras(){

@@ -46,7 +46,8 @@ public class InteractableObject : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(time);
 
-		if (ObjectFinished != null)
+        this.GetComponent<Collider>().enabled = true;
+        if (ObjectFinished != null)
 			ObjectFinished(player);
 	}
 

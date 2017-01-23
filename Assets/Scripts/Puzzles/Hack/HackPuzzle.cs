@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class HackPuzzle : PuzzleUI {
     	
     [Header("Hack puzzle data")]
-	public GameObject inputKeysPanel;
+    [Header("Instantiate game")]
+    public GameObject inputKeysPanel;
 	public GameObject hackKeyPrefab;
 	public GameObject particlesPrefab;
-	public HackKey defaultKeyToFinishGame;
-  
+
+    [Header("Finish game")]
+    public string finishMessageOnSuccess;
+    public string finishMessageOnFaild;
+    public HackKey defaultKeyToFinishGame;
+
     private int currentTry = 0;
     private int numberOfTries;
     private int secondsToBegin;
@@ -18,9 +24,10 @@ public class HackPuzzle : PuzzleUI {
     private HackDataGame dataGame;
     private Vector2 panelAnchoredPosition;
 	private List<HackKey> listHackKeys = new List<HackKey> ();
+    private FinishPuzzleUI finishMessageUI;
 
-
-	void Start() {
+    void Start() {
+        finishMessageUI = GameObject.FindObjectOfType<FinishPuzzleUI>();
         panelAnchoredPosition = inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition;
 		defaultKeyToFinishGame.TriggerEnter += HandleHackKeyTriggerEnter;
 
@@ -29,7 +36,7 @@ public class HackPuzzle : PuzzleUI {
 		OnGameOverPuzzle += HandlePuzzleGameOver;
 	}
 
-	void HandlePuzzleReset(DataPuzzle data){
+    private void HandlePuzzleReset(DataPuzzle data){
         this.dataGame = data as HackDataGame;
         ErasePuzzle ();
 		CreatePuzzle ();
@@ -37,11 +44,14 @@ public class HackPuzzle : PuzzleUI {
         StartCoroutine (BeginPuzzle ());
 	}
 
-	void HandlePuzzleGameOver(){
-		Reset ();			
-	}
+    private void HandlePuzzleGameOver()
+    {
+        SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController>();
+        camerasController.ActiveCameraByName("Main Camera");
+        FinishOnFaild();
+    }
 
-	void ErasePuzzle(){
+	private void ErasePuzzle(){
 		listHackKeys.ForEach(key => Destroy(key));
 	}
 
@@ -52,14 +62,14 @@ public class HackPuzzle : PuzzleUI {
         }
 	}
 
-    GameObject CreateKeyObject() {
+   private  GameObject CreateKeyObject() {
         GameObject obj = Instantiate(hackKeyPrefab, Vector3.zero, Quaternion.identity) as GameObject;
         obj.transform.SetParent(inputKeysPanel.transform);
 
         return obj;        
     }
 
-    void SetUpHackKey(GameObject obj, KeyCode key) {
+    private void SetUpHackKey(GameObject obj, KeyCode key) {
         HackKey hackKey = obj.GetComponent<HackKey>();
         if (hackKey != null) {
 			hackKey.SetUp( key );
@@ -70,7 +80,7 @@ public class HackPuzzle : PuzzleUI {
 
 	private void HandleHackKeyTriggerEnter(HackKey key) {
 		isActive = false;
-		GameFinisedOnSucced ();
+        ShowFinishMessage(finishMessageOnSuccess, GameFinisedOnSucced); 
 	}
     
     private void HandleHackKeyTriggerExit(HackKey key) {
@@ -78,10 +88,11 @@ public class HackPuzzle : PuzzleUI {
         if (currentTry > numberOfTries)
         {
             isActive = false;
+            ShowFinishMessage(finishMessageOnFaild, OnGameOverPuzzle);
         }
     }
 
-    IEnumerator BeginPuzzle(){
+    private IEnumerator BeginPuzzle(){
 		yield return new WaitForSeconds (secondsToBegin);
 
 		currentTry = 0;
@@ -96,16 +107,22 @@ public class HackPuzzle : PuzzleUI {
         inputKeysPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
     }
 
-	void HandleFrameUpdated(){
+	private void HandleFrameUpdated(){
 		if (isActive) {
 			panelAnchoredPosition.y -= Time.deltaTime * speed;
 			inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
 		}
 	}
 
-	void GameFinisedOnSucced(){
+	private void GameFinisedOnSucced(){
 		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
 		camerasController.ActiveCameraByName ("Main Camera");
 		Finish ();
 	}
+    
+    private void ShowFinishMessage(string message, Action OnClosedFinishMesage)
+    {
+        finishMessageUI.OnClose = OnClosedFinishMesage;
+        finishMessageUI.ShowMessage(message);
+    }
 }

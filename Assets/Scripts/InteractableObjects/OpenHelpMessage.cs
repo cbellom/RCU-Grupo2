@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class OpenHelpMessage : InteractableObject {
+    public bool mustDestroyObject = true;
 	public float timeToShow = 5f;
 	public string message;
 	private HelpMessageController helpMessage;
@@ -11,18 +12,19 @@ public class OpenHelpMessage : InteractableObject {
         if (helpMessage == null)
             Debug.LogError("OpenHelpMessage requires a GameObject in scene of type HelpMessageController");
 
-        ObjectActivated += HandleExampleObjectActived;
-		ObjectFinished += HandleExampleObjectExpired;
+        ObjectActivated += HandleObjectActived;
+		ObjectFinished += HandleObjectExpired;
 	}
 
-	private void HandleExampleObjectActived() {
+	private void HandleObjectActived() {
 		OpenMessage ();
 		StopAllCoroutines ();
 		StartCoroutine(WaitFinishAction(timeToTriggerAction));
 	}
 
-	private void HandleExampleObjectExpired(GameObject player) {
-		Destroy(gameObject);
+	private void HandleObjectExpired(GameObject player) {
+		if(mustDestroyObject)
+            Destroy(gameObject);
 	}
 
 	private void OpenMessage() {

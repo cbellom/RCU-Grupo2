@@ -22,17 +22,13 @@ public class HackKey : MonoBehaviour{
 		get;
 		set;
 	}
-
-	private Image image;
-    
+        
 	public void SetUp(KeyCode key){
 		this.key = key;
 		SetUpImageSprite ();
 	}
 
 	private void SetUpImageSprite(){
-        image = GetComponent<Image>();
-
 		if (key == KeyCode.UpArrow)
 			gameObject.GetComponent<RectTransform> ().Rotate (new Vector3 (0, 0, 0));
 		else if (key == KeyCode.DownArrow)

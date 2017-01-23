@@ -17,7 +17,14 @@ public class PuzzleUI : CanvasUI {
 		set;
 	}
 
-	protected bool isActive = false;
+    public Action OnCompletePuzzle
+    {
+        get;
+        set;
+    }
+
+
+    protected bool isActive = false;
 
 	public void Active(DataPuzzle data)
     {
@@ -37,11 +44,19 @@ public class PuzzleUI : CanvasUI {
 
 	protected void Finish(){
 		isTurnOn = false;
+        OnCompletePuzzle();
 		UnLockPlayerMove ();
         RunAnimationsOutPuzzle();
 	}
 
-	protected void UnLockPlayerMove(){
+    protected void FinishOnFaild()
+    {
+        isTurnOn = false;
+        UnLockPlayerMove();
+        RunAnimationsOutPuzzle();
+    }
+
+    protected void UnLockPlayerMove(){
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CharacterMoveController> ().enabled = true;
 	}
