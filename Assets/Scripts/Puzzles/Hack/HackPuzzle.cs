@@ -64,7 +64,6 @@ public class HackPuzzle : PuzzleUI {
         if (hackKey != null) {
 			hackKey.SetUp( key );
             hackKey.TriggerExit += HandleHackKeyTriggerExit;
-            hackKey.TriggerStay += HandleHackKeyTriggerStay;
             listHackKeys.Add(hackKey);
         }
     }
@@ -73,11 +72,7 @@ public class HackPuzzle : PuzzleUI {
 		isActive = false;
 		GameFinisedOnSucced ();
 	}
-
-    private void HandleHackKeyTriggerStay(HackKey key) {
-        Debug.Log("stay " + key.key.ToString());
-    }
-
+    
     private void HandleHackKeyTriggerExit(HackKey key) {
         currentTry++;
         if (currentTry > numberOfTries)

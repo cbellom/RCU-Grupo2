@@ -4,13 +4,20 @@ using System.Collections;
 public class ActiveUIPuzzle : InteractableObject {
 
     public HackDataGame dataGame;
-    public PuzzleUI puzzle;
-	public Camera cameraPuzzle;
+    public Camera cameraPuzzle;
+    protected PuzzleUI puzzle;
 	private Camera mainCamera;
 
     void Awake() {
 		mainCamera = GameObject.Find ("Main Camera").GetComponent<Camera>();
-		ObjectActivated += HandleExampleObjectActived;
+        if (mainCamera == null)
+            Debug.LogError("ActiveUIPuzzle requires a Camera in scene with name Main Camera");
+
+        puzzle = GameObject.FindObjectOfType<PuzzleUI>();
+        if (puzzle == null)
+            Debug.LogError("ActiveUIPuzzle requires a GameObject in scene of type PuzzleUI");
+
+        ObjectActivated += HandleExampleObjectActived;
 		ObjectFinished += HandleExampleObjectExpired;
 	}
 

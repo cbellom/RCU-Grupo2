@@ -25,7 +25,10 @@ public class PuzzleUI : CanvasUI {
 		isTurnOn = true;
 		if(OnResetPuzzle != null)
 			OnResetPuzzle(data);
-	}
+
+        RunAnimationsInPuzzle();
+
+    }
 
 	protected void Reset(){
 		if(OnResetPuzzle != null)
@@ -35,7 +38,7 @@ public class PuzzleUI : CanvasUI {
 	protected void Finish(){
 		isTurnOn = false;
 		UnLockPlayerMove ();
-		RunAnimations ();
+        RunAnimationsOutPuzzle();
 	}
 
 	protected void UnLockPlayerMove(){
@@ -43,7 +46,18 @@ public class PuzzleUI : CanvasUI {
 		player.GetComponent<CharacterMoveController> ().enabled = true;
 	}
 
-	private void RunAnimations(){
-		Debug.LogWarning ("ToDo: Run animations");
-	}
+	private void RunAnimationsInPuzzle()  {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Animator>().SetBool("isInPuzzle", true);
+        GameObject playerEye = GameObject.FindGameObjectWithTag("PlayerEye");
+        playerEye.GetComponent<Animator>().SetBool("isLoading", true);
+    }
+
+    private void RunAnimationsOutPuzzle()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Animator>().SetBool("isInPuzzle", false);
+        GameObject playerEye = GameObject.FindGameObjectWithTag("PlayerEye");
+        playerEye.GetComponent<Animator>().SetBool("isLoading", false);
+    }
 }

@@ -4,10 +4,14 @@ using System.Collections;
 public class OpenHelpMessage : InteractableObject {
 	public float timeToShow = 5f;
 	public string message;
-	public HelpMessageController helpMessage;
+	private HelpMessageController helpMessage;
 
 	void Awake() {
-		ObjectActivated += HandleExampleObjectActived;
+        helpMessage = GameObject.FindObjectOfType<HelpMessageController>();
+        if (helpMessage == null)
+            Debug.LogError("OpenHelpMessage requires a GameObject in scene of type HelpMessageController");
+
+        ObjectActivated += HandleExampleObjectActived;
 		ObjectFinished += HandleExampleObjectExpired;
 	}
 
