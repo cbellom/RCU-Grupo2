@@ -37,11 +37,6 @@ public class PuzzleUI : CanvasUI {
 
     }
 
-	protected void Reset(){
-		if(OnResetPuzzle != null)
-			OnResetPuzzle(data);
-	}
-
 	protected void Finish(){
 		isTurnOn = false;
         OnCompletePuzzle();
