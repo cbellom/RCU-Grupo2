@@ -15,14 +15,8 @@ public class RotationalPlatform : MonoBehaviour {
 			GetComponent<Animator> ().SetInteger ("active", 2);
 		}
 	}
-	#region Public Methods ----
-	public void Activate(){
-		//if (active == false) {
-			Debug.Log ("animando");
-		//	active = true;
-			GetComponent<Animator> ().SetInteger ("active", 1);
-		//}
-	}
 
-	#endregion Public Methods  ----
+	public void Activate(){
+		GetComponent<Animator> ().SetInteger ("active", 1);
+	}
 }
