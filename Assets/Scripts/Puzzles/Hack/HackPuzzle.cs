@@ -23,7 +23,7 @@ public class HackPuzzle : PuzzleUI {
     private float speed;
     private HackDataGame dataGame;
     private Vector2 panelAnchoredPosition;
-	private List<HackKey> listHackKeys = new List<HackKey> ();
+	private List<GameObject> listHackKeys = new List<GameObject> ();
     private FinishPuzzleUI finishMessageUI;
 
     void Start() {
@@ -48,11 +48,13 @@ public class HackPuzzle : PuzzleUI {
     {
         SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController>();
         camerasController.ActiveCameraByName("Main Camera");
+		ErasePuzzle ();
         FinishOnFaild();
     }
 
 	private void ErasePuzzle(){
 		listHackKeys.ForEach(key => Destroy(key));
+
 	}
 
 	void CreatePuzzle(){
@@ -74,7 +76,7 @@ public class HackPuzzle : PuzzleUI {
         if (hackKey != null) {
 			hackKey.SetUp( key );
             hackKey.TriggerExit += HandleHackKeyTriggerExit;
-            listHackKeys.Add(hackKey);
+			listHackKeys.Add(hackKey.gameObject);
         }
     }
 
@@ -117,6 +119,7 @@ public class HackPuzzle : PuzzleUI {
 	private void GameFinisedOnSucced(){
 		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
 		camerasController.ActiveCameraByName ("Main Camera");
+		ErasePuzzle ();
 		Finish ();
 	}
     
