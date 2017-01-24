@@ -86,4 +86,28 @@ public class CharacterMoveController : MonoBehaviour {
 			}
 		} 
 	}
+
+
+
+	public void SuperJump(float multiplier){
+		playerAnimatior.SetBool ("grounded", true);	
+		moveDirection.y = jumpSpeed*multiplier ;
+		Debug.Log (moveDirection.y);
+		controller.Move ( transform.up);
+		/*controller.SimpleMove ( transform.up* jumpSpeed * multiplier);
+
+		controller.velocity = new Vector3(controller.velocity.x,50,controller.velocity.z);
+*/
+
+	}
+
+	public void Push(Vector3 force){
+		//playerAnimatior.SetBool ("grounded", false);	
+		//Debug.Log (force.x+" "+force.y+"  "+force.z); 
+		moveDirection.x += force.x ;
+		moveDirection.y = 5 ;
+		moveDirection.z += force.z ;
+		//Debug.Log ("choque");
+
+	}
 }
