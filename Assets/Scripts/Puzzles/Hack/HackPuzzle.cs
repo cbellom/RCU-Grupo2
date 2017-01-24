@@ -23,31 +23,40 @@ public class HackPuzzle : PuzzleUI {
     private float speed;
     private HackDataGame dataGame;
     private Vector2 panelAnchoredPosition;
-	private List<HackKey> listHackKeys = new List<HackKey> ();
+	private List<GameObject> listHackKeys = new List<GameObject> ();
     private FinishPuzzleUI finishMessageUI;
 
     void Start() {
-        finishMessageUI = GameObject.FindObjectOfType<FinishPuzzleUI>();
-        panelAnchoredPosition = inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition;
-		defaultKeyToFinishGame.TriggerEnter += HandleHackKeyTriggerEnter;
-
-		OnFrameUpdated += HandleFrameUpdated;
-		OnResetPuzzle += HandlePuzzleReset;
-		OnGameOverPuzzle += HandlePuzzleGameOver;
+		finishMessageUI = GameObject.FindObjectOfType<FinishPuzzleUI>();
+		panelAnchoredPosition = inputKeysPanel.GetComponent<RectTransform> ().anchoredPosition;
+		SetHandles ();
 	}
 
     private void HandlePuzzleReset(DataPuzzle data){
-        this.dataGame = data as HackDataGame;
-        ErasePuzzle ();
-		CreatePuzzle ();
-        ResetPanelListPosition();
+		this.dataGame = data as HackDataGame;
+		SetUpPuzzle ();
         StartCoroutine (BeginPuzzle ());
+	}
+
+	private void SetUpPuzzle(){
+		ErasePuzzle ();
+		CreatePuzzle ();
+		ResetPanelListPosition();
+	}
+
+	private void SetHandles(){
+		defaultKeyToFinishGame.TriggerEnter = HandleHackKeyTriggerEnter;
+		OnFrameUpdated = HandleFrameUpdated;
+		OnResetPuzzle += HandlePuzzleReset;
+		OnGameOverPuzzle += HandlePuzzleGameOver;
 	}
 
     private void HandlePuzzleGameOver()
     {
         SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController>();
         camerasController.ActiveCameraByName("Main Camera");
+		ErasePuzzle ();
+		ResetPanelListPositionToDefault ();
         FinishOnFaild();
     }
 
@@ -74,7 +83,7 @@ public class HackPuzzle : PuzzleUI {
         if (hackKey != null) {
 			hackKey.SetUp( key );
             hackKey.TriggerExit += HandleHackKeyTriggerExit;
-            listHackKeys.Add(hackKey);
+			listHackKeys.Add(hackKey.gameObject);
         }
     }
 
@@ -87,7 +96,8 @@ public class HackPuzzle : PuzzleUI {
         currentTry++;
         if (currentTry > numberOfTries)
         {
-            isActive = false;
+			isActive = false;
+			OnGameOverPuzzle += HandlePuzzleGameOver;
             ShowFinishMessage(finishMessageOnFaild, OnGameOverPuzzle);
         }
     }
@@ -107,6 +117,10 @@ public class HackPuzzle : PuzzleUI {
         inputKeysPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelAnchoredPosition.x, panelAnchoredPosition.y);
     }
 
+	private void ResetPanelListPositionToDefault() {
+		inputKeysPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(panelAnchoredPosition.x, 0);
+	}
+
 	private void HandleFrameUpdated(){
 		if (isActive) {
 			panelAnchoredPosition.y -= Time.deltaTime * speed;
@@ -117,6 +131,8 @@ public class HackPuzzle : PuzzleUI {
 	private void GameFinisedOnSucced(){
 		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
 		camerasController.ActiveCameraByName ("Main Camera");
+		ErasePuzzle ();
+		ResetPanelListPositionToDefault ();
 		Finish ();
 	}
     

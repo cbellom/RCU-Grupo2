@@ -30,19 +30,23 @@ public class ActiveUIPuzzle : InteractableObject {
 
     private void ResetTriggerCollider()
     {
-        gameObject.GetComponent<Collider>().enabled = true;
+		gameObject.GetComponent<Collider>().enabled = true;
+		gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
     private void ActivePuzzle() {
         LockPlayerMove ();
 		SwitchCameras ();
+		puzzle.OnGameOverPuzzle = null;
+		puzzle.OnCompletePuzzle = null;
         puzzle.OnGameOverPuzzle += ResetTriggerCollider;
         puzzle.OnCompletePuzzle += DestroyTrigger;
         puzzle.Active(dataGame);
 	}
 
     private void DisableTriggerCollider() {
-        gameObject.GetComponent<Collider>().enabled = false;
+		gameObject.GetComponent<Collider>().enabled = false;
+		gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
 	private void SwitchCameras(){
