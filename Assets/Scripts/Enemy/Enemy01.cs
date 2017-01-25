@@ -48,8 +48,7 @@ public class Enemy01 : MonoBehaviour {
 					//Debug.Log (hit.collider.name);
 					if (hit.distance < 2.0f &&(hit.collider != null) ) {
 						if( hit.collider.transform == target ){
-							CharacterMoveController cmc = target.gameObject.GetComponent<CharacterMoveController> ();
-							cmc.ReceiveForce(hit.normal*(-2.8f));
+							target.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(hit.normal*(-1.9f));
 						}
 					}
 
@@ -94,4 +93,3 @@ public class Enemy01 : MonoBehaviour {
 
 
 }
-	

@@ -1,80 +1,100 @@
 ﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (Animator))]
+[RequireComponent (typeof (CharacterController))]
 public class CharacterMoveController : MonoBehaviour {
-	
-	[SerializeField] float movementSpeed = 5.0f;	//La velocidad del Jugador	
-	[SerializeField] float turnSpeed = 1000f;		//La velocidad de giro del jugador
-	[SerializeField] float jumpForce = 6f;			//Fuerza de salto del jugador
-	[SerializeField] LayerMask whatIsGround;		
 
-	Animator anim;
-	public Rigidbody rigidBody;
-	Vector3 playerInput;
-	bool grounded = true;
+	public float speed = 6.0F;
+	public float jumpSpeed = 8.0F;
+	public float rotationSpeed = 45f;
+	public float gravity = 20.0F;
+	public bool isFacingForward = true;
+
+	private Vector3 moveDirection = Vector3.zero;
+	private CharacterController controller;
+	private Animator playerAnimatior;
+
 
 	void Start () {
-		rigidBody = GetComponent<Rigidbody> ();
-		anim = GetComponent<Animator> ();
+		playerAnimatior = GetComponent<Animator> ();
+		controller = GetComponent<CharacterController>();
 	}
 
 	void FixedUpdate () {
-		if (IsGrounded())
-			grounded = true;
-		else
-			grounded = false;
-
-		/*if (/*GameManager.instance != null && GameManager.instance.IsGameOver ()) 
-		{
-			anim.SetFloat ("Speed", 0f);
-			return;
-		}*/
-		Vector3 direccion = new Vector3();
-		direccion.x = Input.GetAxis("Vertical")*(-transform.position.x)+Input.GetAxis ("Horizontal")*(-transform.position.z);
-		direccion.z = Input.GetAxis("Vertical")*(-transform.position.z)+Input.GetAxis ("Horizontal")*(transform.position.x);
-
-		playerInput.Set(direccion.x, 0f, direccion.z);
-
-		anim.SetFloat ("Speed", playerInput.sqrMagnitude);
-
-		if (playerInput == Vector3.zero)
-			return;
-
-		Vector3 newPosition = transform.position + playerInput.normalized * movementSpeed * Time.deltaTime;
-
-		rigidBody.MovePosition (newPosition);
-
-		Quaternion newRotation = Quaternion.LookRotation (playerInput);  
-
-		if(rigidBody.rotation != newRotation) 
-			rigidBody.rotation = Quaternion.RotateTowards(rigidBody.rotation, newRotation, turnSpeed * Time.deltaTime);
+		CheckGrounded ();
 	}
 
-    void Update()    {
-		if (Input.GetButtonDown ("Jump") && grounded) 
-		{
-			rigidBody.AddForce (new Vector3 (0f, jumpForce, 0f), ForceMode.Impulse);
-			anim.SetTrigger ("Jump");
-			grounded = false;
-			Debug.Log ("aasdas");
+	void Update()    {
+		Rotate ();
+
+		if (controller.isGrounded) {
+			Move ();
+
+			if (Input.GetButton ("Jump"))
+				Jump ();
+
 		}
-
-		anim.SetBool ("Grounded", grounded);
-
+		moveDirection.y -= gravity * Time.deltaTime;
+		controller.Move(moveDirection * Time.deltaTime);
 	}
 
-	bool IsGrounded(){
-		return Physics.Raycast(transform.position, -Vector3.up, 0.3f);
+	void Move(){
+		MoveForward ();
+		playerAnimatior.SetFloat ("moveSpeed", controller.velocity.magnitude);	
 	}
 
+	void Rotate(){
+		transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
 
+		if (Input.GetAxis("Vertical") > 0 && !isFacingForward)
+			Flip ();
+		else if (Input.GetAxis("Vertical") < 0 && isFacingForward)
+			Flip ();
+
+		playerAnimatior.SetFloat("horizontalSpeed", Input.GetAxis("Horizontal"));
+	}
+
+	void MoveForward(){
+		moveDirection = Vector3.forward * Input.GetAxis("Vertical");
+		moveDirection = transform.TransformDirection(moveDirection);
+		moveDirection *= speed;
+	}
+
+	void CheckGrounded (){
+		playerAnimatior.SetBool ("grounded", controller.isGrounded);	
+		playerAnimatior.SetFloat ("verticalSpeed", controller.velocity.y);
+	}
+
+	void Jump(){
+		playerAnimatior.SetBool ("grounded", false);	
+		moveDirection.y = jumpSpeed;
+	}
+
+	void Flip(){
+		isFacingForward = !isFacingForward;
+		playerAnimatior.SetBool ("isFacingForward", isFacingForward);	
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit){		
+		if (hit.gameObject.tag == "AnchorObj"){
+
+			if (hit.moveDirection.y < 0F){
+				RotationalPlatform rp = hit.gameObject.GetComponent<RotationalPlatform> ();
+				if (rp) {
+					rp.Activate ();
+				}
+			}
+		} 
+	}
 
 	public void ReceiveForce(Vector3 force){
-		Debug.Log ("fuerza");
-		rigidBody.AddForce (new Vector3 (force.x, force.y, force.z), ForceMode.Impulse);
-		anim.SetTrigger ("Jump");
-		grounded = false;
+		moveDirection.x += force.x ;
+		moveDirection.y += force.y ;
+		moveDirection.z += force.z ;
+
+		controller.Move ( transform.up*0.1f);
+		playerAnimatior.SetBool ("grounded", false);	
 	}
-
-
 }
