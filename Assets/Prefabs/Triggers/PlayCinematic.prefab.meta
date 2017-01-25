@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 779ab100d9b285f46b9702c0eb0216cc
-labels:
-- Post
-timeCreated: 1477914841
-licenseType: Store
+guid: 61d04a3351a02664c9890354e4c8b31b
+timeCreated: 1485309133
+licenseType: Free
 NativeFormatImporter:
   userData: 
   assetBundleName: 

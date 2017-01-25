@@ -11,6 +11,7 @@ public class PlayCinematic : InteractableObject {
 	}
 
 	private void HandleObjectActived() {
+		LockPlayerMove ();
 		Play ();
 		StopAllCoroutines ();
 		StartCoroutine(WaitFinishAction(timeToTriggerAction));
@@ -18,6 +19,8 @@ public class PlayCinematic : InteractableObject {
 
 	private void HandleObjectExpired(GameObject player) {
 		Stop ();
+		UnLockPlayerMove ();
+		Destroy (gameObject);
 	}
 
 	private void Stop (){
@@ -30,4 +33,13 @@ public class PlayCinematic : InteractableObject {
 		cinematics.PlayCinematic (cinematicNumber);
 	}
 
+	protected void LockPlayerMove(){
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		player.GetComponent<CharacterMoveController> ().enabled = false;
+	}
+
+	protected void UnLockPlayerMove(){
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		player.GetComponent<CharacterMoveController> ().enabled = true;
+	}
 }
