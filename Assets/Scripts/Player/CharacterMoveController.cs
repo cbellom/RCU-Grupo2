@@ -19,7 +19,7 @@ public class CharacterMoveController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (Physics.CheckSphere (transform.position, .1f, whatIsGround))
+		if (IsGrounded())
 			grounded = true;
 		else
 			grounded = false;
@@ -56,9 +56,25 @@ public class CharacterMoveController : MonoBehaviour {
 			rigidBody.AddForce (new Vector3 (0f, jumpForce, 0f), ForceMode.Impulse);
 			anim.SetTrigger ("Jump");
 			grounded = false;
+			Debug.Log ("aasdas");
 		}
 
 		anim.SetBool ("Grounded", grounded);
 
 	}
+
+	bool IsGrounded(){
+		return Physics.Raycast(transform.position, -Vector3.up, 0.3f);
+	}
+
+
+
+	public void ReceiveForce(Vector3 force){
+		Debug.Log ("fuerza");
+		rigidBody.AddForce (new Vector3 (force.x, force.y, force.z), ForceMode.Impulse);
+		anim.SetTrigger ("Jump");
+		grounded = false;
+	}
+
+
 }
