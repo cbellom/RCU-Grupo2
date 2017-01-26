@@ -24,12 +24,12 @@ public class PlayCinematic : InteractableObject {
 	}
 
 	private void Stop (){
-		cinematics.gameObject.SetActive (false);
+		SceneCamerasController.ActiveCameraByName ("Main Camera");
 		cinematics.StopCinematic ();		
 	}
 
 	private void Play() {
-		cinematics.gameObject.SetActive (true);
+		SceneCamerasController.ActiveCameraByName (cinematics.camera.name);
 		cinematics.PlayCinematic (cinematicNumber);
 	}
 
@@ -42,4 +42,5 @@ public class PlayCinematic : InteractableObject {
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CharacterMoveController> ().enabled = true;
 	}
+
 }

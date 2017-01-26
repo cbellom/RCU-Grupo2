@@ -2,14 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SceneCamerasController : MonoBehaviour {
+public static class SceneCamerasController {
 
-	public List<Camera> cameras = new List<Camera> ();
-
-	void Start () {
-	}
-
-	public void ActiveCameraByName(string cameraName){
+	public static void ActiveCameraByName(string cameraName){
+		Camera[] cameras = GameObject.FindObjectsOfType<Camera>();
 		foreach (Camera cam in cameras) {
 			if (cam.name == cameraName)
 				cam.enabled = true;
@@ -17,5 +13,6 @@ public class SceneCamerasController : MonoBehaviour {
 				cam.enabled = false;
 		}
 	}
+
 
 }

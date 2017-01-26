@@ -4,7 +4,11 @@ using System.Collections;
 public class ActiveUIPuzzle : InteractableObject {
 
     public HackDataGame dataGame;
-    public Camera cameraPuzzle;
+	public Camera cameraPuzzle;
+	[Header("Cinematic") ]
+	public int cinematicNumber;
+	public float cinematicTime;
+	public CinematicsController cinematics;
     protected PuzzleUI puzzle;
 	private Camera mainCamera;
     
@@ -25,7 +29,10 @@ public class ActiveUIPuzzle : InteractableObject {
     }
 
 	private void DestroyTrigger() {
-		Destroy(gameObject);
+		LockPlayerMove ();
+		Play ();
+		StopAllCoroutines ();
+		StartCoroutine(WaitToStopCinematic(cinematicTime));
 	}
 
     private void ResetTriggerCollider()
@@ -50,11 +57,33 @@ public class ActiveUIPuzzle : InteractableObject {
     }
 
 	private void SwitchCameras(){
-		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
-		camerasController.ActiveCameraByName (cameraPuzzle.name);
+		SceneCamerasController.ActiveCameraByName (cameraPuzzle.name);
+	}
+	private void Stop (){
+		SceneCamerasController.ActiveCameraByName ("Main Camera");
+		cinematics.gameObject.SetActive (false);
+		cinematics.StopCinematic ();		
+	}
+
+	private void Play() {
+		SceneCamerasController.ActiveCameraByName (cinematics.camera.name);
+		cinematics.gameObject.SetActive (true);
+		cinematics.PlayCinematic (cinematicNumber);
 	}
 
 	private void LockPlayerMove(){
 		player.GetComponent<CharacterMoveController> ().enabled = false;
+	}
+
+	protected void UnLockPlayerMove(){
+		player.GetComponent<CharacterMoveController> ().enabled = true;
+	}
+
+	private IEnumerator WaitToStopCinematic(float time){
+		yield return new WaitForSeconds (time);
+		Stop ();
+		UnLockPlayerMove ();
+		Destroy (gameObject);
+
 	}
 }

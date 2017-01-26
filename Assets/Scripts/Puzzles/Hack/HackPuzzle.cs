@@ -53,8 +53,7 @@ public class HackPuzzle : PuzzleUI {
 
     private void HandlePuzzleGameOver()
     {
-        SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController>();
-        camerasController.ActiveCameraByName("Main Camera");
+		SceneCamerasController.ActiveCameraByName("Main Camera");
 		ErasePuzzle ();
 		ResetPanelListPositionToDefault ();
         FinishOnFaild();
@@ -129,8 +128,7 @@ public class HackPuzzle : PuzzleUI {
 	}
 
 	private void GameFinisedOnSucced(){
-		SceneCamerasController camerasController = GameObject.FindObjectOfType<SceneCamerasController> ();
-		camerasController.ActiveCameraByName ("Main Camera");
+		SceneCamerasController.ActiveCameraByName ("Main Camera");
 		ErasePuzzle ();
 		ResetPanelListPositionToDefault ();
 		Finish ();
