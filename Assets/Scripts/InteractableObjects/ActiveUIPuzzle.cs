@@ -61,13 +61,11 @@ public class ActiveUIPuzzle : InteractableObject {
 	}
 	private void Stop (){
 		SceneCamerasController.ActiveCameraByName ("Main Camera");
-		cinematics.gameObject.SetActive (false);
 		cinematics.StopCinematic ();		
 	}
 
 	private void Play() {
 		SceneCamerasController.ActiveCameraByName (cinematics.camera.name);
-		cinematics.gameObject.SetActive (true);
 		cinematics.PlayCinematic (cinematicNumber);
 	}
 

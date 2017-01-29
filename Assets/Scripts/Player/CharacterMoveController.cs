@@ -91,10 +91,10 @@ public class CharacterMoveController : MonoBehaviour {
 
 	public void ReceiveForce(Vector3 force){
 		moveDirection.x += force.x ;
-		moveDirection.y += force.y ;
+		moveDirection.y += force.y * jumpSpeed;
 		moveDirection.z += force.z ;
 
-		controller.Move ( transform.up*0.1f);
-		playerAnimatior.SetBool ("grounded", false);	
+		moveDirection.y -= gravity * Time.deltaTime;
+		controller.Move(moveDirection * Time.deltaTime);
 	}
 }

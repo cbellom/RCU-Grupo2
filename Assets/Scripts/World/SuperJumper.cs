@@ -7,8 +7,7 @@ public class SuperJumper : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-		//Debug.Log(other.name);
-		if(other.name == "Player")
+		if(other.tag == "Player")
 		{
 			other.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(Vector3.up*multiplier);
 		}
