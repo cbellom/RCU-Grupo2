@@ -48,4 +48,8 @@ public class CanvasUI : MonoBehaviour {
 			OnFrameUpdated ();
 	}
 
+	public void TurnOn(){
+		isTurnOn = true;
+	}
+
 }
