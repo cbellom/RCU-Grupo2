@@ -4,10 +4,10 @@ using System.Collections;
 public class Enemy01 : MonoBehaviour {
 
 	[Header("Components")]
-	[SerializeField] NavMeshAgent navMeshAgent; 					//Reference to the navmesh agent component
+	[SerializeField] NavMeshAgent navMeshAgent;
 	[SerializeField] Animator animator;
 
-	float originalSpeed;											//Original movement speed of the enemy (in case they get frozen)
+	float originalSpeed;
 
 	static WaitForSeconds updateDelay = new WaitForSeconds(.5f);
 
@@ -18,23 +18,18 @@ public class Enemy01 : MonoBehaviour {
 
 	void Reset ()
 	{
-		//Grab references to the needed components
 		navMeshAgent = GetComponent<NavMeshAgent> ();
 		animator = GetComponent<Animator> ();
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
-	//When this game object is enabled...
 	void OnEnable()
 	{
-		//Enabled the nav mesh agent
 		Reset();
 		navMeshAgent.enabled = true;
-		//Start the ChasePlayer coroutine
 		StartCoroutine("ChasePlayer");
 	}
 
-	//This coroutine updates the navmesh agent to chase the player
 	IEnumerator ChasePlayer ()
 	{
 		yield return null;
@@ -45,10 +40,11 @@ public class Enemy01 : MonoBehaviour {
 			if (target != null) {
 				navMeshAgent.SetDestination (target.position);
 				if(Physics.Raycast(transform.position, target.position-transform.position, out hit ) ){
-					//Debug.Log (hit.collider.name);
 					if (hit.distance < 2.0f &&(hit.collider != null) ) {
 						if( hit.collider.transform == target ){
-							target.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(hit.normal*(-1.9f));
+							Vector3 force = hit.normal;
+							force.y = 0;
+							target.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(force*(-1.9f));
 						}
 					}
 
