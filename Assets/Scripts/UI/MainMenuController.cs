@@ -37,7 +37,7 @@ public class MainMenuController : CanvasUI {
 
 	private void GetStartInput(){
 		if (Input.GetButton ("Start")) {
-			ChangeScene ("Level0");
+			ChangeScene ("1_Tutorial");
 		}
 		
 	}
