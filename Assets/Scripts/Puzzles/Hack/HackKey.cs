@@ -48,7 +48,11 @@ public class HackKey : MonoBehaviour{
 	}
 
 	private void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.CompareTag ("PuzzleHack") && Input.GetKey(key))
+		if (other.gameObject.CompareTag ("PuzzleHack") && (Input.GetKey(key) 
+			|| ( key==KeyCode.UpArrow && Input.GetAxis("Vertical")>0 )
+			|| ( key==KeyCode.DownArrow && Input.GetAxis("Vertical")<0 )
+			|| ( key==KeyCode.LeftArrow && Input.GetAxis("Horizontal")<0 )
+			|| ( key==KeyCode.RightArrow && Input.GetAxis("Horizontal")>0 )))
         {
 			gameObject.GetComponent<Image> ().enabled = false;
 			gameObject.GetComponent<Collider2D> ().enabled = false;

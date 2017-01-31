@@ -37,6 +37,7 @@ public class CanvasUI : MonoBehaviour {
 		else if (!isTurnOn && canvasGroup.alpha > 0)
 			canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
 
+
 		#if UNITY_EDITOR
 		if (Input.GetKey(keyToOpenCanvas) ) {
             if (OnKeyPressed != null) OnKeyPressed();

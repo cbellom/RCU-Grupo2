@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : CanvasUI {
    	
 	public CanvasUI fadeCanvas;
+	public MenuSoundController msc;
+
 
 	void Start(){
 		OnKeyPressed += HanldeOnKeyPressed;
 		OnFrameUpdated += GetStartInput;
 	}
+		
 
     public void ChangeScene(string sceneName) {
 		StopAllCoroutines ();
@@ -22,6 +25,7 @@ public class MainMenuController : CanvasUI {
 
 		if (fadeCanvas != null) {
 			fadeCanvas.TurnOn ();
+			msc.FadeSoundMusic ();
 			yield return new WaitForSeconds(1);
 		}
 
@@ -36,7 +40,7 @@ public class MainMenuController : CanvasUI {
 	}
 
 	private void GetStartInput(){
-		if (Input.GetButton ("Start")) {
+		if (Input.anyKeyDown ) {
 			ChangeScene ("1_Tutorial");
 		}
 		
