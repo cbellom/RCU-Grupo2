@@ -7,9 +7,9 @@ public class MainMenuController : CanvasUI {
    	
 	public CanvasUI fadeCanvas;
 	public MenuSoundController msc;
+    public SceneLoader sceneLoader;
 
-
-	void Start(){
+    void Start(){
 		OnKeyPressed += HanldeOnKeyPressed;
 		OnFrameUpdated += GetStartInput;
 	}
@@ -26,13 +26,12 @@ public class MainMenuController : CanvasUI {
 		if (fadeCanvas != null) {
 			fadeCanvas.TurnOn ();
 			msc.FadeSoundMusic ();
-			yield return new WaitForSeconds(1);
 		}
 
 		yield return new WaitForSeconds(seconds);
 
 		isTurnOn = true;
-		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
+        sceneLoader.Load(sceneName);
 	}
 
 	private void HanldeOnKeyPressed(){
