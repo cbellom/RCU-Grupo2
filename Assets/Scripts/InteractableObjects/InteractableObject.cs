@@ -33,7 +33,7 @@ public class InteractableObject : MonoBehaviour {
 	{
 		if (!isAutoActivated && other.gameObject.CompareTag("Player"))
 		{
-			if(Input.GetKey(KeyCode.E))
+			if(  Input.GetButton("Fire1") )
 			{
 				player = other.gameObject;
 				this.GetComponent<Collider> ().enabled = false;
