@@ -1,0 +1,269 @@
+fileFormatVersion: 2
+guid: 101ed3ffce4d5ae4e9536e755719ffc3
+timeCreated: 1485883291
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: loadingAtlas_0
+    21300002: loadingAtlas_1
+    21300004: loadingAtlas_2
+    21300006: loadingAtlas_3
+    21300008: loadingAtlas_4
+    21300010: loadingAtlas_5
+    21300012: loadingAtlas_6
+    21300014: loadingAtlas_7
+    21300016: loadingAtlas_8
+    21300018: loadingAtlas_9
+    21300020: loadingAtlas_10
+    21300022: loadingAtlas_11
+    21300024: loadingAtlas_12
+    21300026: loadingAtlas_13
+    21300028: loadingAtlas_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: loadingAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 903
+        width: 281
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 897
+        width: 331
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 893
+        width: 318
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 793
+        width: 335
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 797
+        width: 335
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 796
+        width: 317
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 661
+        width: 334
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 663
+        width: 331
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 547
+        width: 331
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 551
+        width: 335
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 405
+        width: 316
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 373
+        width: 323
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 283
+        width: 326
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 285
+        width: 333
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: loadingAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 153
+        width: 335
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
