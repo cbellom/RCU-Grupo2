@@ -6,8 +6,9 @@ public class ChangeScene : InteractableObject {
 
 	public string sceneName;
 	public CanvasUI fadeCanvas;
+    public SceneLoader sceneLoader;
 
-	void Awake() {
+    void Awake() {
 		ObjectActivated += HandleObjectActived;
 		ObjectFinished += HandleObjectExpired;
 	}
@@ -18,9 +19,10 @@ public class ChangeScene : InteractableObject {
 		StartCoroutine(WaitFinishAction(timeToTriggerAction));
 	}
 
-	private void HandleObjectExpired(GameObject player) {
-		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
-	}
+	private void HandleObjectExpired(GameObject player)
+    {
+        sceneLoader.Load(sceneName);
+    }
 
 	private void OpenFadeMenu(){
 		if (fadeCanvas != null) {
