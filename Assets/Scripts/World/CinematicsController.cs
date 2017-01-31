@@ -5,8 +5,9 @@ public class CinematicsController : MonoBehaviour {
 
 	public Animator animator;
 	public Camera camera;
-
-	void Start () {
+    public GameObject[] particlesVapor;
+    
+    void Start () {
 		animator = GetComponent<Animator> ();
 		if (animator == null)
 			Debug.LogError ("CinematicsController require an animator component");
@@ -23,4 +24,19 @@ public class CinematicsController : MonoBehaviour {
 		animator.SetInteger ("number", 0);
 	}
 
+    public void activeParticle()
+    {
+        foreach (GameObject item in particlesVapor) {
+            item.SetActive(true);
+        }
+        
+    }
+
+    public void unEnableParticle()
+    {
+        foreach (GameObject item in particlesVapor)
+        {
+            item.SetActive(false);
+        }
+    }
 }
