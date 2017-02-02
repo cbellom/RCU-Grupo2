@@ -40,11 +40,12 @@ public class Enemy01 : MonoBehaviour {
 			if (target != null) {
 				navMeshAgent.SetDestination (target.position);
 				if(Physics.Raycast(transform.position, target.position-transform.position, out hit ) ){
-					if (hit.distance < 2.0f &&(hit.collider != null) ) {
+					if (hit.distance < 2.1f &&(hit.collider != null) ) {
 						if( hit.collider.transform == target ){
 							Vector3 force = hit.normal;
-							force.y = 0;
-							target.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(force*(-1.9f));
+							force.y = -0.4f;
+                            
+							target.gameObject.GetComponent<CharacterMoveController>().ReceiveForce(force*(-2.6f));
 						}
 					}
 

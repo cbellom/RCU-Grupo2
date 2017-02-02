@@ -4,8 +4,10 @@ using System.Collections;
 
 public class PuzzleUI : CanvasUI {
     private DataPuzzle data;
+    public AudioClip sndRight;
+    public AudioClip sndWrong;
 
-	public Action<DataPuzzle> OnResetPuzzle
+    public Action<DataPuzzle> OnResetPuzzle
 	{
 		get;
 		set;
@@ -42,13 +44,15 @@ public class PuzzleUI : CanvasUI {
         OnCompletePuzzle();
 		UnLockPlayerMove ();
         RunAnimationsOutPuzzle();
-	}
+        GameObject.Find("Sound").GetComponent<AudioSource>().PlayOneShot(sndRight);
+    }
 
     protected void FinishOnFaild()
     {
         isTurnOn = false;
         UnLockPlayerMove();
         RunAnimationsOutPuzzle();
+        GameObject.Find("Sound").GetComponent<AudioSource>().PlayOneShot(sndWrong);
     }
 
     protected void UnLockPlayerMove(){

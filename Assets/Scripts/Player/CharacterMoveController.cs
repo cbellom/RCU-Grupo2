@@ -11,6 +11,8 @@ public class CharacterMoveController : MonoBehaviour {
 	public float rotationSpeed = 45f;
 	public float gravity = 20.0F;
 	public bool isFacingForward = true;
+    public AudioClip sndJump;
+    public AudioClip sndForce;
 
 	private Vector3 moveDirection = Vector3.zero;
 	private CharacterController controller;
@@ -70,7 +72,8 @@ public class CharacterMoveController : MonoBehaviour {
 	void Jump(){
 		playerAnimatior.SetBool ("grounded", false);	
 		moveDirection.y = jumpSpeed;
-	}
+        GameObject.Find("Sound").GetComponent<AudioSource>().PlayOneShot(sndJump);
+    }
 
 	void Flip(){
 		isFacingForward = !isFacingForward;
@@ -96,5 +99,7 @@ public class CharacterMoveController : MonoBehaviour {
 
 		moveDirection.y -= gravity * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
+
+        GameObject.Find("Sound").GetComponent<AudioSource>().PlayOneShot(sndForce);
 	}
 }
